@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../Provider/cart_provider.dart';
 import '../../constants.dart';
 
 class CheckOutBox extends StatelessWidget {
@@ -9,13 +9,7 @@ class CheckOutBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = CartProvider.of(context);
-    //
-    //
-    //
-    //
-    //
-
+    final provider = CartProvider.of(context);
     return Container(
       height: 300,
       width: double.infinity,
@@ -62,10 +56,10 @@ class CheckOutBox extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "Subtotal",
                 style: TextStyle(
                   fontSize: 16,
@@ -74,13 +68,8 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                // "\$${provider.totalPrice()}",
-                //
-                //
-
-                'aaa',
-
-                style: TextStyle(
+                "\$${provider.totalPrice()}",
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -90,10 +79,10 @@ class CheckOutBox extends StatelessWidget {
           const SizedBox(height: 10),
           const Divider(),
           const SizedBox(height: 10),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "Total",
                 style: TextStyle(
                   fontSize: 18,
@@ -101,13 +90,8 @@ class CheckOutBox extends StatelessWidget {
                 ),
               ),
               Text(
-                // "\$${provider.totalPrice()}",
-                //
-                //
-
-                'bbb',
-
-                style: TextStyle(
+                "\$${provider.totalPrice()}",
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),

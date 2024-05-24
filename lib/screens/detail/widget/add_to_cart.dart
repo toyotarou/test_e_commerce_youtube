@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../models/product.dart';
+import '../../../provider/cart_provider.dart';
 
 class AddToCart extends StatefulWidget {
   final Product product;
@@ -17,10 +18,7 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = CartProvider.of(context);
-    //
-    //
-    //
+    final provider = CartProvider.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -83,10 +81,7 @@ class _AddToCartState extends State<AddToCart> {
             ),
             GestureDetector(
               onTap: () {
-                // provider.toggleFavorite(widget.product);
-                //
-                //
-                //
+                provider.toggleFavorite(widget.product);
 
                 const snackBar = SnackBar(
                   content: Text(
