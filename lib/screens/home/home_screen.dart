@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_e_commerce_app/screens/home/widgets/custom_image_slider.dart';
 import 'package:test_e_commerce_app/screens/home/widgets/custom_search_bar.dart';
 
+import '../../models/category.dart';
 import 'widgets/custom_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentSlider = 0;
+
+  int selectedIndex = 0;
 
   ///
   @override
@@ -35,9 +38,51 @@ class _HomeScreenState extends State<HomeScreen> {
                 onChange: (value) => setState(() => currentSlider = value),
               ),
               const SizedBox(height: 20),
+              categoryItems(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  ///
+  Widget categoryItems() {
+    return SizedBox(
+      height: 130,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: categoriesList.length,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => setState(() => selectedIndex = index),
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: selectedIndex == index ? Colors.blue[200] : Colors.transparent,
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    height: 65,
+                    width: 65,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(image: AssetImage(categoriesList[index].image), fit: BoxFit.cover),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    categoriesList[index].title,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
