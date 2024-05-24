@@ -108,7 +108,7 @@ class ProductCard extends StatelessWidget {
                   //
                   //
                 },
-                child: Icon(
+                child: const Icon(
                   // provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
                   //
                   //

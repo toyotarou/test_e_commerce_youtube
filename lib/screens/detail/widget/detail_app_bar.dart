@@ -49,7 +49,7 @@ class DetailAppBar extends StatelessWidget {
               //
               //
             },
-            icon: Icon(
+            icon: const Icon(
               // provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
               //
               //
