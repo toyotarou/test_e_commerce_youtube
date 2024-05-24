@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
+import '../../../provider/favorite_provider.dart';
 
 class DetailAppBar extends StatelessWidget {
   final Product product;
@@ -9,10 +10,7 @@ class DetailAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = FavoriteProvider.of(context);
-    //
-    //
-    //
+    final provider = FavoriteProvider.of(context);
 
     return Padding(
       padding: const EdgeInsets.all(10),
@@ -44,19 +42,10 @@ class DetailAppBar extends StatelessWidget {
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {
-              // provider.toggleFavorite(product);
-              //
-              //
-              //
+              provider.toggleFavorite(product);
             },
-            icon: const Icon(
-              // provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
-              //
-              //
-              //
-              //
-              Icons.favorite,
-
+            icon: Icon(
+              provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
               color: Colors.black,
               size: 25,
             ),
