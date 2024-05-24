@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentSlider = 0;
-  int selectedIndex = 0;
 
   ///
   @override
@@ -33,13 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               CustomImageSlider(
                 currentSlide: currentSlider,
-                onChange: (value) {
-                  setState(
-                    () {
-                      currentSlider = value;
-                    },
-                  );
-                },
+                onChange: (value) => setState(() => currentSlider = value),
               ),
               const SizedBox(height: 20),
             ],
