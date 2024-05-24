@@ -39,6 +39,22 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               categoryItems(),
+              const SizedBox(height: 20),
+              if (selectedIndex == 0) ...[
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Special For You",
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800),
+                    ),
+                    Text(
+                      "See all",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.black54),
+                    ),
+                  ],
+                ),
+              ],
             ],
           ),
         ),
