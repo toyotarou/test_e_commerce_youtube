@@ -3,7 +3,9 @@ import 'package:test_e_commerce_app/screens/home/widgets/custom_image_slider.dar
 import 'package:test_e_commerce_app/screens/home/widgets/custom_search_bar.dart';
 
 import '../../models/category.dart';
+import '../../models/product.dart';
 import 'widgets/custom_app_bar.dart';
+import 'widgets/product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   ///
   @override
   Widget build(BuildContext context) {
+    List<List<Product>> selectcategories = [all, shoes, beauty, womenFashion, jewelry, menFashion];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -55,6 +59,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ],
+
+              // for shopping items
+              const SizedBox(height: 10),
+              GridView.builder(
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 0.75, crossAxisSpacing: 20, mainAxisSpacing: 20),
+                itemCount: selectcategories[selectedIndex].length,
+                itemBuilder: (context, index) {
+                  return ProductCard(
+                    product: selectcategories[selectedIndex][index],
+                  );
+                },
+              )
             ],
           ),
         ),

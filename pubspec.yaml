@@ -28,3 +28,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/all/
+    - assets/images/beauty/
+    - assets/images/jewelry/
+    - assets/images/men_fashion/
+    - assets/images/shoes/
+    - assets/images/women_fashion/
