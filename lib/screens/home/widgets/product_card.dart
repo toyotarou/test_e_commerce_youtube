@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../models/product.dart';
+import '../../../provider/favorite_provider.dart';
 import '../../detail/detail_screen.dart';
 
 class ProductCard extends StatelessWidget {
@@ -11,9 +12,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = FavoriteProvider.of(context);
-    //
-    //
+    final provider = FavoriteProvider.of(context);
 
     return GestureDetector(
       onTap: () {
@@ -103,19 +102,10 @@ class ProductCard extends StatelessWidget {
               ),
               child: GestureDetector(
                 onTap: () {
-                  // provider.toggleFavorite(product);
-                  //
-                  //
-                  //
+                  provider.toggleFavorite(product);
                 },
-                child: const Icon(
-                  // provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
-                  //
-                  //
-                  //
-
-                  Icons.favorite,
-
+                child: Icon(
+                  provider.isExist(product) ? Icons.favorite : Icons.favorite_border,
                   color: Colors.white,
                   size: 22,
                 ),
